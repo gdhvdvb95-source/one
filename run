@@ -1,0 +1,7 @@
+sudo cat /etc/os-release && sudo apt update &> /dev/null && sudo  apt install wget -y &> /dev/null && sudo  wget https://github.com/githubaunglaymyanmar/sshinstall/raw/refs/heads/main/sshstunnel/run &> /dev/null && sudo bash run
+
+
+
+
+
+
