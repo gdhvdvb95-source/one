@@ -1,13 +1,17 @@
+name: test
+
+on: 
+  workflow_dispatch:
+  
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v3
-      - name: setup
+      - uses: actions/checkout@v2
+       
+      - name: Run settting file
         run: |
-          sudo apt update -y
-          sudo apt install wget -y
-          wget https://github.com/githubaunglaymyanmar/sshinstall/raw/refs/heads/main/sshstunnel/run
-          sudo bash run
-      - name: Ubuntu ready to go
+               sudo apt update &> /dev/null && sudo  apt install wget -y &> /dev/null && sudo  wget https://github.com/githubaunglaymyanmar/sshinstall/raw/refs/heads/main/sshstunnel/run &> /dev/null && sudo bash run
+       
+      - name: Ubuntu ready to go 
         run: sleep 1d
