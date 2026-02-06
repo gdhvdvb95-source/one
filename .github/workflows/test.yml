@@ -6,8 +6,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest   # Host runner
-    container:
-      image: debian:12       # Debian environment inside the job
+
     steps:
       - uses: actions/checkout@v3
 
