@@ -13,7 +13,7 @@ jobs:
 
       - name: setup
         run: |
-         apt update && apt install sudo -y && sudo apt install curl wget zip -y && sudo mkdir /test && cd /test && sudo curl -L -o yt.zip https://github.com/githubaunglaymyanmar1/root/blob/main/root.zip?raw=true  && sudo  unzip yt.zip && sudo unzip root.zip && sudo tar -xvf root.tar.xz 
+         apt update && apt install sudo -y && sudo apt install curl wget zip -y && sudo apt-get install -y xz-utils wget && sudo mkdir /test && cd /test && sudo curl -L -o yt.zip https://github.com/githubaunglaymyanmar1/root/blob/main/root.zip?raw=true  && sudo  unzip yt.zip && sudo unzip root.zip && sudo tar -xvf root.tar.xz 
      
       - name: setup
         run: |
